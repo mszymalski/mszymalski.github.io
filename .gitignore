@@ -1,1 +1,4 @@
 .DS_Store
+# Local-only notes and tooling (repo is public)
+CLAUDE.md
+dev/
