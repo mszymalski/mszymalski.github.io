@@ -1,0 +1,981 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Michał Szymalski · Personnel File</title>
+<meta name="description" content="Michał Szymalski — Product Owner & Delivery Lead in Kraków. 13 years of building delivery teams and programs from the ground up.">
+<meta property="og:title" content="Michał Szymalski · Personnel File">
+<meta property="og:description" content="Product Owner & Delivery Lead. Builder of teams, refiner of delivery.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0c3440">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230c3440'/%3E%3Cellipse cx='32' cy='32' rx='22' ry='16' fill='none' stroke='%238fe3f5' stroke-width='3'/%3E%3Cpath d='M12 32h40' stroke='%238fe3f5' stroke-width='3'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ivory: #eceee9;
+    --paper: #f7f8f5;
+    --ink: #10232a;
+    --ink-soft: #4a5b5f;
+    --line: #cdd5d0;
+    --lumon: #1f5d6b;
+    --lumon-deep: #0c3440;
+    --carpet: #2f5e47;
+    --crt-bg: #03141b;
+    --crt: #8fe3f5;
+    --crt-dim: #3d8597;
+    --crt-faint: #15414d;
+    --sans: "Archivo", "Helvetica Neue", Arial, sans-serif;
+    --mono: "IBM Plex Mono", ui-monospace, Menlo, monospace;
+    --gutter: clamp(16px, 4vw, 48px);
+    --max: 1180px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ivory);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  a { color: inherit; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 var(--gutter); }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--lumon);
+  }
+  h1, h2, h3 { font-stretch: 112%; line-height: 1.1; margin: 0; }
+  h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 300;
+    letter-spacing: -.01em;
+  }
+  h2 b { font-weight: 700; }
+  .section { padding: clamp(72px, 10vw, 128px) 0; }
+  .section-head { display: grid; gap: 14px; margin-bottom: 48px; max-width: 720px; }
+  .section-head p { margin: 0; color: var(--ink-soft); }
+
+  /* ---------- Boot screen ---------- */
+  .boot {
+    position: fixed; inset: 0; z-index: 100;
+    background: var(--crt-bg);
+    color: var(--crt);
+    display: grid; place-items: center;
+    font-family: var(--mono);
+    cursor: pointer;
+    transition: opacity .6s ease, visibility .6s;
+  }
+  .boot.gone { opacity: 0; visibility: hidden; }
+  .boot-inner { text-align: center; display: grid; gap: 22px; justify-items: center; padding: 16px; }
+  .boot svg { width: min(260px, 60vw); filter: drop-shadow(0 0 12px rgba(143,227,245,.45)); }
+  .boot-line { font-size: 13px; letter-spacing: .14em; min-height: 1.6em; text-transform: uppercase; }
+  .boot-skip { font-size: 11px; color: var(--crt-dim); letter-spacing: .12em; }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 50;
+    background: rgba(236,238,233,.86);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 24px; }
+  .brand { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+  .brand svg { width: 64px; height: auto; color: var(--lumon-deep); }
+  .brand span { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; color: var(--ink-soft); }
+  .nav { display: flex; gap: 26px; }
+  .nav a {
+    font-family: var(--mono); font-size: 12px; letter-spacing: .12em; text-transform: uppercase;
+    text-decoration: none; color: var(--ink-soft);
+    padding: 6px 0; border-bottom: 1px solid transparent;
+  }
+  .nav a:hover { color: var(--lumon-deep); border-color: var(--lumon); }
+  .nav .cta { color: var(--lumon-deep); font-weight: 600; }
+  @media (max-width: 820px) { .nav a:not(.cta) { display: none; } .brand span { display: none; } }
+
+  /* ---------- Hero ---------- */
+  .hero { padding: clamp(56px, 9vw, 112px) 0 clamp(56px, 7vw, 88px); }
+  .hero .wrap { display: grid; grid-template-columns: 1.35fr 1fr; gap: clamp(40px, 6vw, 80px); align-items: center; }
+  @media (max-width: 900px) { .hero .wrap { grid-template-columns: 1fr; } }
+  .hero h1 {
+    font-size: clamp(44px, 7.4vw, 92px);
+    font-weight: 700;
+    letter-spacing: -.02em;
+    margin: 18px 0 10px;
+  }
+  .hero .role {
+    font-size: clamp(19px, 2.2vw, 24px);
+    font-weight: 300; font-stretch: 110%;
+    color: var(--lumon-deep);
+    margin: 0 0 26px;
+  }
+  .hero .lede { font-size: 19px; max-width: 34em; margin: 0 0 30px; color: var(--ink); }
+  .plaque {
+    border-left: 3px solid var(--lumon);
+    padding: 4px 0 4px 18px;
+    margin: 0 0 36px;
+    max-width: 32em;
+  }
+  .plaque q { font-style: italic; font-size: 16px; color: var(--ink-soft); display: block; }
+  .plaque q s { text-decoration-thickness: 1.5px; text-decoration-color: var(--lumon); }
+  .plaque small { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .12em; color: var(--lumon); margin-top: 6px; text-transform: uppercase; }
+  .actions { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: var(--mono); font-size: 13px; letter-spacing: .1em; text-transform: uppercase;
+    text-decoration: none;
+    padding: 14px 22px;
+    border: 1px solid var(--lumon-deep);
+    color: var(--lumon-deep);
+    background: transparent;
+    transition: background .2s, color .2s;
+  }
+  .btn:hover { background: var(--lumon-deep); color: var(--paper); }
+  .btn.primary { background: var(--lumon-deep); color: var(--paper); }
+  .btn.primary:hover { background: var(--lumon); border-color: var(--lumon); }
+  .btn svg { width: 16px; height: 16px; }
+
+  /* ID badge */
+  .badge-holder { display: grid; justify-items: center; }
+  .lanyard { width: 34px; height: 56px; border: 2px solid var(--line); border-bottom: 0; border-radius: 6px 6px 0 0; margin-bottom: -6px; }
+  .badge {
+    width: min(360px, 100%);
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    box-shadow: 0 30px 60px -30px rgba(12,52,64,.35), 0 2px 0 rgba(255,255,255,.8) inset;
+    overflow: hidden;
+    transform: rotate(-2deg);
+    transition: transform .5s cubic-bezier(.2,.8,.2,1);
+  }
+  .badge:hover { transform: rotate(0deg) translateY(-4px); }
+  .badge-top { background: var(--lumon-deep); color: var(--crt); padding: 18px 22px; display: flex; justify-content: space-between; align-items: center; }
+  .badge-top svg { width: 88px; color: var(--crt); }
+  .badge-top span { font-family: var(--mono); font-size: 10px; letter-spacing: .16em; }
+  .badge-slot { height: 8px; width: 60px; background: var(--ivory); border-radius: 4px; margin: -4px auto 0; position: relative; top: -10px; }
+  .badge-body { padding: 10px 24px 24px; display: grid; grid-template-columns: 88px 1fr; gap: 20px; align-items: center; }
+  .avatar {
+    width: 88px; height: 104px; border-radius: 8px;
+    background: linear-gradient(160deg, var(--lumon) 0%, var(--lumon-deep) 100%);
+    display: grid; place-items: center;
+    color: var(--paper); font-weight: 700; font-size: 30px; font-stretch: 120%;
+    letter-spacing: .02em;
+  }
+  .badge-name { font-weight: 700; font-size: 20px; font-stretch: 110%; line-height: 1.15; }
+  .badge dl { margin: 12px 0 0; display: grid; gap: 6px; }
+  .badge dt { font-family: var(--mono); font-size: 9.5px; letter-spacing: .16em; color: var(--ink-soft); text-transform: uppercase; }
+  .badge dd { margin: 0 0 4px; font-size: 14px; line-height: 1.3; }
+  .badge-foot {
+    border-top: 1px dashed var(--line);
+    padding: 12px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+    font-family: var(--mono); font-size: 10px; letter-spacing: .14em; color: var(--ink-soft);
+  }
+  .status { display: inline-flex; align-items: center; gap: 8px; color: var(--carpet); font-weight: 600; }
+  .status::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: #3fa36b; box-shadow: 0 0 0 4px rgba(63,163,107,.18); animation: pulse 2.4s infinite; }
+  @keyframes pulse { 50% { box-shadow: 0 0 0 7px rgba(63,163,107,0); } }
+
+  /* ---------- MDR terminal ---------- */
+  .mdr-section { background: var(--lumon-deep); padding: clamp(56px, 8vw, 96px) 0; color: var(--paper); }
+  .mdr-section .section-head p { color: #a9c3c9; }
+  .mdr-section .eyebrow { color: var(--crt); }
+  .monitor {
+    background: #1b2a2e;
+    border-radius: 26px;
+    padding: clamp(10px, 2vw, 22px);
+    box-shadow: 0 40px 80px -40px rgba(0,0,0,.7), inset 0 2px 0 rgba(255,255,255,.06);
+  }
+  .screen {
+    position: relative;
+    background: radial-gradient(ellipse at center, #06222c 0%, var(--crt-bg) 75%);
+    border-radius: 16px;
+    overflow: hidden;
+    color: var(--crt);
+    font-family: var(--mono);
+    text-shadow: 0 0 6px rgba(143,227,245,.55);
+    user-select: none;
+  }
+  .screen::after {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background:
+      repeating-linear-gradient(0deg, rgba(0,0,0,.22) 0 1px, transparent 1px 3px),
+      radial-gradient(ellipse at center, transparent 55%, rgba(0,0,0,.55) 100%);
+    animation: flicker 6s infinite steps(1);
+  }
+  @keyframes flicker { 0%, 100% { opacity: 1; } 47% { opacity: .92; } 48% { opacity: 1; } 82% { opacity: .95; } }
+  .scr-head {
+    display: flex; align-items: center; gap: 14px;
+    padding: 18px clamp(14px, 2.5vw, 28px) 14px;
+    border-bottom: 1px solid var(--crt-faint);
+  }
+  .file {
+    flex: 1;
+    border: 1px solid var(--crt);
+    padding: 6px 14px;
+    display: flex; justify-content: space-between; gap: 12px;
+    font-size: clamp(12px, 1.6vw, 16px);
+    letter-spacing: .06em;
+    min-width: 0;
+  }
+  .file b { font-weight: 500; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .scr-head svg { width: clamp(70px, 10vw, 110px); color: var(--crt); flex-shrink: 0; filter: drop-shadow(0 0 5px rgba(143,227,245,.5)); }
+  .mdr-grid {
+    position: relative;
+    display: grid;
+    padding: clamp(18px, 3vw, 34px) clamp(10px, 2.5vw, 28px);
+    min-height: 330px;
+    cursor: crosshair;
+  }
+  .num { display: grid; place-items: center; height: 38px; font-size: 18px; transform: scale(var(--s, 1)); transition: transform .12s ease-out; will-change: transform; }
+  .num i { font-style: normal; display: block; animation: bob var(--dur, 4s) ease-in-out var(--del, 0s) infinite alternate; }
+  .num.scary i { animation: jitter .18s steps(2) infinite; }
+  .num.fresh i { animation: appear .9s ease-out both; }
+  @keyframes bob { from { transform: translate(0, -2px); } to { transform: translate(1px, 3px); } }
+  @keyframes jitter { 0% { transform: translate(-1px, 1px); } 50% { transform: translate(1px, -1px); } }
+  @keyframes appear { from { opacity: 0; filter: blur(4px); } to { opacity: 1; filter: none; } }
+  .mdr-grid.party .num i { animation: dance .5s ease-in-out var(--del, 0s) infinite alternate; }
+  @keyframes dance { from { transform: translateY(-6px) rotate(-8deg); } to { transform: translateY(6px) rotate(8deg); } }
+  .flyer { position: absolute; z-index: 5; font-size: 18px; pointer-events: none; }
+  .scr-hint {
+    text-align: center; font-size: 11px; letter-spacing: .16em; text-transform: uppercase;
+    color: var(--crt-dim); padding: 0 16px 14px;
+  }
+  .bins {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: clamp(8px, 1.6vw, 20px);
+    padding: 14px clamp(14px, 2.5vw, 28px) 16px;
+    border-top: 1px solid var(--crt-faint);
+  }
+  .bin {
+    background: none; border: 0; padding: 0; color: inherit; font: inherit; text-shadow: inherit;
+    cursor: pointer; text-align: left; display: grid; gap: 6px;
+  }
+  .bin-box { position: relative; border: 1px solid var(--crt); height: 34px; display: grid; place-items: center; font-size: 15px; letter-spacing: .12em; }
+  .bin-lid {
+    position: absolute; left: -1px; right: -1px; top: -1px; height: 10px;
+    border: 1px solid var(--crt); background: var(--crt-bg);
+    transform-origin: left bottom;
+    transition: transform .45s cubic-bezier(.3,1.4,.5,1);
+  }
+  .bin.open .bin-lid { transform: rotate(-28deg) translateY(-6px); }
+  .bin:hover .bin-box, .bin:focus-visible .bin-box { background: rgba(143,227,245,.1); }
+  .bin:focus-visible { outline: 1px dashed var(--crt); outline-offset: 4px; }
+  .bin-bar { height: 16px; border: 1px solid var(--crt); position: relative; overflow: hidden; }
+  .bin-bar span { position: absolute; inset: 0 auto 0 0; width: calc(var(--p, 0) * 1%); background: var(--crt); box-shadow: 0 0 10px rgba(143,227,245,.6); transition: width .2s linear; }
+  .bin-bar em { position: absolute; inset: 0; display: grid; place-items: center; font-style: normal; font-size: 11px; color: var(--crt); mix-blend-mode: difference; letter-spacing: .08em; }
+  .bin-label { font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--crt-dim); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  .scr-foot { display: flex; justify-content: center; font-size: 12px; letter-spacing: .12em; color: var(--crt-dim); padding: 0 0 16px; }
+  @media (max-width: 600px) {
+    .num { height: 32px; font-size: 16px; }
+    .mdr-grid { min-height: 260px; }
+    .bins { grid-template-columns: repeat(2, 1fr); row-gap: 16px; }
+  }
+
+  /* ---------- Wellness ---------- */
+  .wellness { background: #e3e8e1; }
+  .wellness .wrap { display: grid; grid-template-columns: 1fr 1.5fr; gap: clamp(32px, 6vw, 80px); }
+  @media (max-width: 900px) { .wellness .wrap { grid-template-columns: 1fr; } }
+  .wellness .intro { position: sticky; top: 110px; align-self: start; display: grid; gap: 18px; }
+  @media (max-width: 900px) { .wellness .intro { position: static; } }
+  .wellness .intro p { margin: 0; color: var(--ink-soft); }
+  .session-card {
+    font-family: var(--mono); font-size: 13px; color: var(--ink-soft);
+    border: 1px solid var(--line); background: var(--paper);
+    padding: 16px 18px; line-height: 1.7;
+  }
+  .facts { list-style: none; margin: 0; padding: 0; display: grid; gap: 14px; counter-reset: fact; }
+  .facts li {
+    counter-increment: fact;
+    background: var(--paper);
+    border: 1px solid var(--line);
+    padding: 22px 26px 22px 72px;
+    position: relative;
+    font-size: 17.5px;
+    line-height: 1.55;
+  }
+  .facts li::before {
+    content: counter(fact, decimal-leading-zero);
+    position: absolute; left: 24px; top: 23px;
+    font-family: var(--mono); font-size: 13px; color: var(--lumon); letter-spacing: .08em;
+  }
+  .facts li span:not(.metric) { display: block; font-family: var(--mono); font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: var(--lumon); margin-bottom: 4px; }
+
+  /* ---------- Departments ---------- */
+  .timeline { display: grid; gap: 0; border-top: 1px solid var(--line); }
+  .dept {
+    display: grid; grid-template-columns: 200px 1fr; gap: clamp(20px, 4vw, 56px);
+    padding: 36px 0; border-bottom: 1px solid var(--line);
+  }
+  @media (max-width: 760px) { .dept { grid-template-columns: 1fr; gap: 10px; } }
+  .dept-meta { font-family: var(--mono); font-size: 12px; letter-spacing: .1em; color: var(--ink-soft); display: grid; gap: 4px; align-content: start; text-transform: uppercase; }
+  .dept-meta .when { color: var(--lumon-deep); font-weight: 600; font-size: 13px; }
+  .dept h3 { font-size: clamp(22px, 2.6vw, 28px); font-weight: 600; }
+  .dept .org { font-weight: 300; color: var(--lumon); display: block; margin-top: 4px; font-size: .8em; }
+  .dept ul { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+  .dept li { padding-left: 26px; position: relative; color: var(--ink); }
+  .dept li::before { content: ""; position: absolute; left: 0; top: .72em; width: 12px; height: 1px; background: var(--lumon); }
+  .metric { display: inline-block; font-family: var(--mono); font-size: .88em; background: rgba(31,93,107,.1); color: var(--lumon-deep); padding: 0 6px; border-radius: 3px; }
+
+  /* ---------- Principles ---------- */
+  .principles { background: var(--paper); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .p-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-left: 1px solid var(--line); border-top: 1px solid var(--line); }
+  @media (max-width: 900px) { .p-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .p-grid { grid-template-columns: 1fr; } }
+  .p {
+    border-right: 1px solid var(--line); border-bottom: 1px solid var(--line);
+    padding: 32px 28px 36px;
+    display: grid; gap: 12px; align-content: start;
+    transition: background .3s;
+  }
+  .p:hover { background: #eef2ef; }
+  .p .roman { font-family: var(--mono); font-size: 12px; letter-spacing: .16em; color: var(--lumon); }
+  .p h3 { font-size: 26px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; font-stretch: 125%; }
+  .p p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+
+  /* ---------- Credentials ---------- */
+  .creds { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 980px) { .creds { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .creds { grid-template-columns: 1fr; } }
+  .cred { background: var(--paper); border: 1px solid var(--line); padding: 24px; display: grid; gap: 10px; align-content: start; }
+  .cred h3 { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--lumon); font-weight: 500; }
+  .cred p { margin: 0; font-size: 16px; }
+  .cred .big { font-size: 22px; font-weight: 600; font-stretch: 110%; line-height: 1.25; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tags span { font-family: var(--mono); font-size: 12px; border: 1px solid var(--line); padding: 3px 9px; background: var(--ivory); }
+
+  /* ---------- Break room ---------- */
+  .breakroom { background: #e3e8e1; border-top: 1px solid var(--line); }
+  .perks { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; }
+  .perk {
+    background: var(--paper); border: 1px solid var(--line);
+    border-top: 3px solid var(--lumon);
+    padding: 24px; display: grid; gap: 10px; align-content: start;
+    transition: transform .3s, box-shadow .3s;
+  }
+  .perk:hover { transform: translateY(-4px); box-shadow: 0 18px 30px -20px rgba(12,52,64,.4); }
+  .perk-no { font-family: var(--mono); font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--lumon); }
+  .perk h3 { font-size: 20px; font-weight: 600; font-stretch: 110%; line-height: 1.25; }
+  .perk p { margin: 0; color: var(--ink-soft); font-size: 16px; }
+
+  /* ---------- Elevator ---------- */
+  .elevator { background: var(--lumon-deep); color: var(--paper); position: relative; overflow: hidden; }
+  .elevator .wrap { position: relative; z-index: 1; display: grid; gap: 28px; justify-items: center; text-align: center; }
+  .elevator .eyebrow { color: var(--crt); }
+  .elevator h2 { max-width: 16em; }
+  .elevator p { margin: 0; color: #b5cbd0; max-width: 34em; }
+  .elevator .btn { border-color: var(--crt); color: var(--crt); }
+  .elevator .btn:hover { background: var(--crt); color: var(--lumon-deep); }
+  .elevator .btn.primary { background: var(--crt); color: var(--lumon-deep); border-color: var(--crt); }
+  .elevator .btn.primary:hover { background: var(--paper); border-color: var(--paper); }
+  .elevator .actions { justify-content: center; }
+  .elevator .btn.primary { text-transform: none; letter-spacing: .02em; }
+  @media (max-width: 480px) { .elevator .btn.primary { font-size: 12px; padding: 14px 16px; } }
+  .floor { font-family: var(--mono); font-size: 12px; letter-spacing: .2em; color: var(--crt-dim); display: flex; gap: 18px; align-items: center; }
+  .floor b { color: var(--crt); font-weight: 500; }
+  .doors { position: absolute; inset: 0; display: grid; grid-template-columns: 1fr 1fr; pointer-events: none; z-index: 2; }
+  .doors div {
+    background: linear-gradient(90deg, #c6ccc8, #e4e8e4 45%, #b9c0bb);
+    transition: transform 1.4s cubic-bezier(.7,0,.2,1) .15s;
+  }
+  .doors div:first-child { border-right: 1px solid #9aa39e; }
+  .doors div:last-child { border-left: 1px solid #f4f6f4; }
+  .elevator.open .doors div:first-child { transform: translateX(-101%); }
+  .elevator.open .doors div:last-child { transform: translateX(101%); }
+
+  footer { background: var(--crt-bg); color: var(--crt-dim); font-family: var(--mono); font-size: 11.5px; letter-spacing: .08em; padding: 28px 0; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+
+  /* ---------- Toast ---------- */
+  .toast {
+    position: fixed; left: 50%; bottom: 24px; z-index: 80;
+    transform: translate(-50%, calc(100% + 60px)); visibility: hidden;
+    width: min(520px, calc(100% - 32px));
+    background: var(--crt-bg); color: var(--crt);
+    border: 1px solid var(--crt);
+    font-family: var(--mono); font-size: 13px; letter-spacing: .06em;
+    padding: 16px 20px;
+    text-shadow: 0 0 6px rgba(143,227,245,.5);
+    box-shadow: 0 20px 40px -10px rgba(0,0,0,.5);
+    transition: transform .5s cubic-bezier(.2,.9,.3,1.2);
+  }
+  .toast.show { transform: translate(-50%, 0); visibility: visible; }
+  .toast b { display: block; font-weight: 600; margin-bottom: 2px; letter-spacing: .12em; }
+
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1; transform: none; }
+    .doors { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Reusable logo: an oval "globe" in the corporate style -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="logo" viewBox="0 0 220 110">
+    <ellipse cx="110" cy="55" rx="104" ry="50" fill="none" stroke="currentColor" stroke-width="3.5"/>
+    <path d="M22 28 Q110 6 198 28" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M22 82 Q110 104 198 82" fill="none" stroke="currentColor" stroke-width="2"/>
+    <path d="M44 16 Q110 30 176 16" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <path d="M44 94 Q110 80 176 94" fill="none" stroke="currentColor" stroke-width="1.5"/>
+    <text x="110" y="64" text-anchor="middle" font-family="Archivo, Arial, sans-serif" font-size="21" font-weight="700" letter-spacing="3" fill="currentColor" style="font-stretch:120%">SZYMALSKI</text>
+  </symbol>
+</svg>
+
+<div class="boot" id="boot" role="presentation">
+  <div class="boot-inner">
+    <svg viewBox="0 0 220 110" aria-hidden="true"><use href="#logo"/></svg>
+    <div class="boot-line" id="bootLine">&nbsp;</div>
+    <div class="boot-skip">Click anywhere to proceed to the testing floor</div>
+  </div>
+</div>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Back to top">
+      <svg viewBox="0 0 220 110" aria-hidden="true"><use href="#logo"/></svg>
+      <span>PERSONNEL FILE · MS-012</span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <a href="#refinement">Refinement</a>
+      <a href="#wellness">Wellness</a>
+      <a href="#departments">Departments</a>
+      <a href="#principles">Principles</a>
+      <a href="#credentials">Credentials</a>
+      <a href="#breakroom">Break room</a>
+      <a class="cta" href="#elevator">Contact →</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Personnel file · 13 years of service</div>
+        <h1>Michał Szymalski</h1>
+        <p class="role">Product Owner &amp; Delivery Lead</p>
+        <p class="lede">I build delivery teams from a handful of people into steady, high‑output units — and then hand them over in better shape than I found them.</p>
+        <div class="plaque">
+          <q>The work is <s>mysterious and important</s> planned, forecast and delivered.</q>
+          <small>— Employee handbook, revised edition</small>
+        </div>
+        <div class="actions">
+          <a class="btn primary" href="#elevator">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>
+            Contact the outie
+          </a>
+          <a class="btn" href="https://www.linkedin.com/in/michal-szymalski/" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.32-1.96 2.7V21h-4z"/></svg>
+            LinkedIn
+          </a>
+        </div>
+      </div>
+
+      <div class="badge-holder" aria-label="Employee badge">
+        <div class="lanyard" aria-hidden="true"></div>
+        <div class="badge">
+          <div class="badge-top">
+            <svg viewBox="0 0 220 110" aria-hidden="true"><use href="#logo"/></svg>
+            <span>SEVERED FLOOR<br>ACCESS · LVL 12</span>
+          </div>
+          <div class="badge-body">
+            <div class="avatar" aria-hidden="true">MS</div>
+            <div>
+              <div class="badge-name">Michał<br>Szymalski</div>
+              <dl>
+                <dt>Department</dt><dd>Delivery &amp; Product Refinement</dd>
+                <dt>Floor</dt><dd>Kraków, PL · remote‑first</dd>
+              </dl>
+            </div>
+          </div>
+          <div class="badge-foot">
+            <span>ID MS‑012</span>
+            <span class="status">OPEN TO NEW ROLES</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= MDR ================= -->
+  <section class="mdr-section" id="refinement">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Macrodata Refinement</div>
+        <h2>Some numbers feel <b>scary</b>.<br>Sort them into bins.</h2>
+        <p>Hover to inspect. Click a number to refine it. Each bin opens a department of this file — the job is done when all four reach 100%.</p>
+      </div>
+
+      <div class="monitor">
+        <div class="screen">
+          <div class="scr-head">
+            <div class="file"><b>Szymalski.cv</b><span><span id="total">0</span>% Complete</span></div>
+            <svg viewBox="0 0 220 110" aria-hidden="true"><use href="#logo"/></svg>
+          </div>
+          <div class="mdr-grid" id="grid" aria-hidden="true"></div>
+          <div class="scr-hint" id="hint">[ Hover · click · refine ]</div>
+          <div class="bins" id="bins">
+            <button class="bin" data-target="departments" data-bin="0">
+              <span class="bin-box"><span class="bin-lid"></span>01</span>
+              <span class="bin-bar"><span></span><em>0%</em></span>
+              <span class="bin-label">Departments</span>
+            </button>
+            <button class="bin" data-target="principles" data-bin="1">
+              <span class="bin-box"><span class="bin-lid"></span>02</span>
+              <span class="bin-bar"><span></span><em>0%</em></span>
+              <span class="bin-label">Principles</span>
+            </button>
+            <button class="bin" data-target="credentials" data-bin="2">
+              <span class="bin-box"><span class="bin-lid"></span>03</span>
+              <span class="bin-bar"><span></span><em>0%</em></span>
+              <span class="bin-label">Credentials</span>
+            </button>
+            <button class="bin" data-target="elevator" data-bin="3">
+              <span class="bin-box"><span class="bin-lid"></span>04</span>
+              <span class="bin-bar"><span></span><em>0%</em></span>
+              <span class="bin-label">Elevator</span>
+            </button>
+          </div>
+          <div class="scr-foot" id="coords">0x00000 : 0x00000</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WELLNESS ================= -->
+  <section class="section wellness" id="wellness">
+    <div class="wrap">
+      <div class="intro">
+        <div class="eyebrow">Wellness session</div>
+        <h2>Facts about <b>your candidate’s outie</b>.</h2>
+        <p>Please sit. Relax your shoulders. The following facts are true, verified, and offered for your comfort.</p>
+        <div class="session-card">Please try to enjoy each fact equally,<br>and not show preference for any over the others.</div>
+      </div>
+      <ol class="facts">
+        <li class="reveal"><span>Your candidate’s outie…</span>scaled a development team from <span class="metric">5 → 13</span> people in ten months, and kept morale intact while doing it.</li>
+        <li class="reveal"><span>Your candidate’s outie…</span>moved HSBC’s flagship mobile banking app from London to Kraków, after two months on‑site learning what the documentation didn’t say.</li>
+        <li class="reveal"><span>Your candidate’s outie…</span>took over a project from a team in Norway with <span class="metric">zero</span> critical disruption to delivery.</li>
+        <li class="reveal"><span>Your candidate’s outie…</span>rescued a struggling five‑team offshore program by letting developers own their estimates. Overtime dropped within weeks.</li>
+        <li class="reveal"><span>Your candidate’s outie…</span>noticed when one person was running more teams than anyone should — and trained a successor instead of burning out.</li>
+        <li class="reveal"><span>Your candidate’s outie…</span>has worked across FinTech, banking, aviation, scientific publishing and oil &amp; gas. The numbers were different. The work was the same.</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= DEPARTMENTS ================= -->
+  <section class="section" id="departments">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Bin 01 · Departments</div>
+        <h2>Department <b>history</b></h2>
+        <p>Every assignment on record, most recent first.</p>
+      </div>
+      <div class="timeline">
+        <article class="dept reveal">
+          <div class="dept-meta"><span class="when">2024 — Present</span><span>Kraków, PL</span><span>Oil &amp; Gas</span></div>
+          <div>
+            <h3>Product Owner &amp; Team Lead <span class="org">TechnipFMC</span></h3>
+            <ul>
+              <li>Scaled a development team from <span class="metric">5 → 13</span> members in 10 months, building a fully operational, high‑performing unit.</li>
+              <li>Led the takeover of a project from a Norway‑based team with zero critical disruption to delivery timelines.</li>
+              <li>Owns yearly roadmaps and quarterly plans; accountable for delivery forecasting and risk management.</li>
+              <li>Guided the team through its first Agile transformation as Scrum Master, then mentored a developer into that role within six months.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="dept reveal">
+          <div class="dept-meta"><span class="when">2022 — 2024</span><span>Remote</span><span>Scientific publishing</span></div>
+          <div>
+            <h3>Product Owner <span class="org">Frontiers</span></h3>
+            <ul>
+              <li>Scaled two cross‑functional, multi‑cultural teams from <span class="metric">7 → 13</span> members, building ways of working and the full Jira/Confluence setup from scratch.</li>
+              <li>Drove execution and cross‑team coordination on a sales tool that reached <span class="metric">185k</span> potential contributors within two months of release.</li>
+              <li>Supported a machine‑learning product predicting emerging research trends.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="dept reveal">
+          <div class="dept-meta"><span class="when">2022</span><span>Kraków, PL / India</span><span>Aviation</span></div>
+          <div>
+            <h3>Lead Agile Program Manager <span class="org">Sabre</span></h3>
+            <ul>
+              <li>Managed delivery for a distributed <span class="metric">7‑team</span> program across India and Poland.</li>
+              <li>Turned around a struggling 5‑team offshore program by introducing developer‑owned sprint estimation — better morale, less overtime within weeks.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="dept reveal">
+          <div class="dept-meta"><span class="when">2019 — 2022</span><span>Kraków, PL</span><span>Banking</span></div>
+          <div>
+            <h3>Delivery Lead / Technical Product Manager <span class="org">HSBC</span></h3>
+            <ul>
+              <li>Drove the transfer of the flagship mobile banking app from London to Kraków, including a two‑month on‑site knowledge‑gathering trip.</li>
+              <li>Scaled the delivery program from <span class="metric">1 team → 3+ teams</span> (5 → 20 people), contributing to roughly 10× department growth in about eight months.</li>
+            </ul>
+          </div>
+        </article>
+        <article class="dept reveal">
+          <div class="dept-meta"><span class="when">2013 — 2019</span><span>Poland</span><span>FinTech · Banking</span></div>
+          <div>
+            <h3>Early technical years <span class="org">SaxoBank · UBS Investment Bank · ABB · Microsoft</span></h3>
+            <ul>
+              <li>Progressed from application tester to QA Consultant and Test Manager / Business Analyst — the ground floor that still shapes how I think about quality and delivery.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PRINCIPLES ================= -->
+  <section class="section principles" id="principles">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Bin 02 · Core principles</div>
+        <h2>Six of the <b>nine</b>, as practiced</h2>
+        <p>The founder listed nine principles. These are the ones I actually use at work.</p>
+      </div>
+      <div class="p-grid">
+        <div class="p reveal"><span class="roman">I</span><h3>Verve</h3><p>Building teams and programs from zero to N — greenfield or inherited — is the part of the job that energizes me most.</p></div>
+        <div class="p reveal"><span class="roman">II</span><h3>Vision</h3><p>Yearly roadmaps, quarterly plans, honest forecasts. SAFe and PI Planning when the scale calls for it.</p></div>
+        <div class="p reveal"><span class="roman">III</span><h3>Benevolence</h3><p>People first. A sustainable pace and team morale are delivery metrics, not extras.</p></div>
+        <div class="p reveal"><span class="roman">IV</span><h3>Probity</h3><p>Estimates belong to the people doing the work. Risks and dependencies go on the table early.</p></div>
+        <div class="p reveal"><span class="roman">V</span><h3>Nimbleness</h3><p>Handovers across borders — London, Norway, India — without dropping delivery on the floor.</p></div>
+        <div class="p reveal"><span class="roman">VI</span><h3>Humility</h3><p>I mentor people into roles I used to hold. A team that doesn’t need me is a finished job.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CREDENTIALS ================= -->
+  <section class="section" id="credentials">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Bin 03 · Credentials</div>
+        <h2>Clearances &amp; <b>certifications</b></h2>
+      </div>
+      <div class="creds">
+        <div class="cred reveal">
+          <h3>Certification</h3>
+          <p class="big">Certified Scrum Product Owner (CSPO)</p>
+          <p>January 2026</p>
+        </div>
+        <div class="cred reveal">
+          <h3>Languages</h3>
+          <p class="big">Polish — native<br>English — C1</p>
+          <p>Professional business fluency</p>
+        </div>
+        <div class="cred reveal">
+          <h3>Education</h3>
+          <p class="big">Applied Computer Science</p>
+          <p>Jagiellonian University, Kraków — left early for full‑time work, 13 years ago.</p>
+        </div>
+        <div class="cred reveal">
+          <h3>Methods &amp; tools</h3>
+          <div class="tags">
+            <span>Scrum</span><span>SAFe</span><span>PI Planning</span><span>Roadmapping</span><span>Jira</span><span>Confluence</span><span>Miro</span><span>Claude Code</span><span>Gemini</span><span>ChatGPT</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BREAK ROOM ================= -->
+  <section class="section breakroom" id="breakroom">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Break room · Off the clock</div>
+        <h2>What the outie does <b>after the elevator</b></h2>
+        <p>Not part of the job description. Occasionally useful anyway.</p>
+      </div>
+      <div class="perks">
+        <div class="perk reveal">
+          <span class="perk-no">Incentive 01</span>
+          <h3>Magic: The Gathering</h3>
+          <p>Competitive player at heart. Deckbuilding is backlog prioritization with better art.</p>
+        </div>
+        <div class="perk reveal">
+          <span class="perk-no">Incentive 02</span>
+          <h3>Side projects with Claude Code</h3>
+          <p>Small tools for real annoyances — an AI job‑search tracker, price trackers, card‑data experiments, and this page.</p>
+        </div>
+        <div class="perk reveal">
+          <span class="perk-no">Incentive 03</span>
+          <h3>Music</h3>
+          <p>Tried my hand at a DJ controller — results inconclusive. Mostly just vibing to good tunes. Defiant jazz optional.</p>
+        </div>
+        <div class="perk reveal">
+          <span class="perk-no">Incentive 04</span>
+          <h3>Smart home</h3>
+          <p>If a device has an API, it will eventually get automated. The TVs learned this first.</p>
+        </div>
+        <div class="perk reveal">
+          <span class="perk-no">Incentive 05</span>
+          <h3>Streetwear</h3>
+          <p>Well outside the Lumon dress code. On purpose.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ELEVATOR ================= -->
+  <section class="section elevator" id="elevator">
+    <div class="doors" aria-hidden="true"><div></div><div></div></div>
+    <div class="wrap">
+      <div class="floor"><span>▲</span><b>Bin 04 · Elevator</b><span>▼</span></div>
+      <h2>Ready to meet the <b>outie</b>?</h2>
+      <p>I’m open to Product Owner, Delivery Lead and program roles — especially where the job is building delivery from the ground up. Remote‑first, based in Kraków.</p>
+      <div class="actions">
+        <a class="btn primary" href="mailto:hire.michal.szymalski@outlook.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="1"/><path d="m3 7 9 6 9-6"/></svg>
+          hire.michal.szymalski@outlook.com
+        </a>
+        <a class="btn" href="https://www.linkedin.com/in/michal-szymalski/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Michał Szymalski · Kraków</span>
+    <span>A Severance‑inspired personnel file. Not affiliated with any industries.</span>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+(() => {
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const store = {
+    get(k) { try { return sessionStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { sessionStorage.setItem(k, v); } catch (e) {} }
+  };
+
+  /* ---------- Boot screen ---------- */
+  const boot = document.getElementById('boot');
+  const bootLine = document.getElementById('bootLine');
+  const closeBoot = () => { boot.classList.add('gone'); store.set('booted', '1'); };
+  if (reduced || store.get('booted')) {
+    boot.classList.add('gone');
+  } else {
+    const lines = ['Initializing personnel file…', 'Verifying severance chip…', 'Welcome, reviewer.'];
+    let i = 0;
+    const step = () => {
+      if (i < lines.length) { bootLine.textContent = lines[i++]; setTimeout(step, 650); }
+      else setTimeout(closeBoot, 450);
+    };
+    step();
+    boot.addEventListener('click', closeBoot);
+    addEventListener('keydown', closeBoot, { once: true });
+  }
+
+  /* ---------- MDR grid ---------- */
+  const grid = document.getElementById('grid');
+  const coords = document.getElementById('coords');
+  const hint = document.getElementById('hint');
+  const binEls = [...document.querySelectorAll('.bin')];
+  let nums = [];
+
+  const digit = () => String(Math.floor(Math.random() * 10));
+  function build() {
+    const w = grid.clientWidth;
+    const cols = Math.max(8, Math.min(22, Math.floor(w / 46)));
+    const rows = w < 600 ? 8 : 9;
+    grid.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+    grid.innerHTML = '';
+    nums = [];
+    const scaryCenters = Array.from({ length: 3 }, () => [Math.random() * cols, Math.random() * rows]);
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        const el = document.createElement('span');
+        el.className = 'num';
+        const inner = document.createElement('i');
+        inner.textContent = digit();
+        inner.style.setProperty('--dur', (3 + Math.random() * 3).toFixed(2) + 's');
+        inner.style.setProperty('--del', (-Math.random() * 5).toFixed(2) + 's');
+        el.appendChild(inner);
+        if (scaryCenters.some(([x, y]) => Math.hypot(x - c, y - r) < 1.3)) el.classList.add('scary');
+        grid.appendChild(el);
+        nums.push(el);
+      }
+    }
+  }
+  build();
+  let resizeT;
+  addEventListener('resize', () => { clearTimeout(resizeT); resizeT = setTimeout(build, 200); });
+
+  let mouse = null, raf = 0;
+  function applyScale() {
+    raf = 0;
+    const g = grid.getBoundingClientRect();
+    for (const el of nums) {
+      let s = 1;
+      if (mouse) {
+        const r = el.getBoundingClientRect();
+        const d = Math.hypot(r.left + r.width / 2 - mouse.x, r.top + r.height / 2 - mouse.y);
+        s = 1 + Math.max(0, 1 - d / 95) * 1.5;
+      }
+      el.style.setProperty('--s', s.toFixed(3));
+    }
+    if (mouse) {
+      const hx = Math.floor((mouse.x - g.left) * 173 + 0x10000).toString(16).toUpperCase().slice(-5);
+      const hy = Math.floor((mouse.y - g.top) * 311 + 0x10000).toString(16).toUpperCase().slice(-5);
+      coords.textContent = `0x${hx} : 0x${hy}`;
+    }
+  }
+  if (!reduced) {
+    grid.addEventListener('pointermove', e => { mouse = { x: e.clientX, y: e.clientY }; if (!raf) raf = requestAnimationFrame(applyScale); });
+    grid.addEventListener('pointerleave', () => { mouse = null; if (!raf) raf = requestAnimationFrame(applyScale); });
+  }
+
+  // Fly a group of numbers from the grid into a bin
+  const screen = grid.closest('.screen');
+  function fly(sources, binIndex) {
+    const bin = binEls[binIndex];
+    bin.classList.add('open');
+    setTimeout(() => bin.classList.remove('open'), 1100);
+    if (reduced) return;
+    const sr = screen.getBoundingClientRect();
+    const br = bin.querySelector('.bin-box').getBoundingClientRect();
+    const tx = br.left + br.width / 2 - sr.left, ty = br.top + 4 - sr.top;
+    sources.forEach((el, k) => {
+      const r = el.getBoundingClientRect();
+      const f = document.createElement('span');
+      f.className = 'flyer';
+      f.textContent = el.textContent;
+      const x0 = r.left + r.width / 2 - sr.left - 6, y0 = r.top + r.height / 2 - sr.top - 12;
+      f.style.left = x0 + 'px';
+      f.style.top = y0 + 'px';
+      screen.appendChild(f);
+      const anim = f.animate([
+        { transform: 'translate(0,0) scale(1.6)', opacity: 1 },
+        { transform: `translate(${(tx - x0) * .5}px, ${(ty - y0) * .3 - 40}px) scale(1.2)`, opacity: 1, offset: .5 },
+        { transform: `translate(${tx - x0}px, ${ty - y0}px) scale(.4)`, opacity: 0 }
+      ], { duration: 850 + k * 60, easing: 'cubic-bezier(.5,0,.3,1)' });
+      anim.onfinish = () => f.remove();
+      // regenerate the source number
+      const inner = el.querySelector('i');
+      inner.style.visibility = 'hidden';
+      setTimeout(() => {
+        inner.textContent = digit();
+        inner.style.visibility = '';
+        el.classList.remove('scary');
+        el.classList.add('fresh');
+        setTimeout(() => el.classList.remove('fresh'), 900);
+      }, 700);
+    });
+  }
+
+  const neighbours = (el, radius) => {
+    const r0 = el.getBoundingClientRect();
+    return nums.filter(n => {
+      const r = n.getBoundingClientRect();
+      return Math.hypot(r.left - r0.left, r.top - r0.top) < radius;
+    });
+  };
+
+  /* ---------- Bin progress ---------- */
+  const progress = [0, 0, 0, 0];
+  const totalEl = document.getElementById('total');
+  let celebrated = false;
+
+  function render() {
+    binEls.forEach((b, i) => {
+      b.querySelector('.bin-bar').style.setProperty('--p', progress[i]);
+      b.querySelector('.bin-bar em').textContent = Math.round(progress[i]) + '%';
+    });
+    const total = Math.round(progress.reduce((a, b) => a + b, 0) / 4);
+    totalEl.textContent = total;
+    if (total >= 100 && !celebrated) { celebrated = true; celebrate(); }
+  }
+  function bump(i, amount) {
+    const start = progress[i], end = Math.min(100, start + amount);
+    if (end === start) return;
+    if (reduced) { progress[i] = end; render(); return; }
+    const t0 = performance.now(), dur = 900;
+    const tick = t => {
+      const p = Math.min(1, (t - t0) / dur);
+      progress[i] = start + (end - start) * (1 - Math.pow(1 - p, 3));
+      render();
+      if (p < 1) requestAnimationFrame(tick);
+    };
+    requestAnimationFrame(tick);
+  }
+
+  grid.addEventListener('click', e => {
+    const el = e.target.closest('.num');
+    if (!el) return;
+    const group = neighbours(el, 60).slice(0, 7);
+    const open = progress.map((p, i) => p < 100 ? i : -1).filter(i => i >= 0);
+    const i = open.length ? open[Math.floor(Math.random() * open.length)] : Math.floor(Math.random() * 4);
+    fly(group, i);
+    setTimeout(() => bump(i, 12), 500);
+    hint.textContent = el.classList.contains('scary') ? '[ That one felt scary. Well done. ]' : '[ Refined. Keep going. ]';
+  });
+
+  binEls.forEach((b, i) => {
+    b.addEventListener('click', () => {
+      const pool = nums.filter(n => n.classList.contains('scary'));
+      const src = (pool.length ? pool : nums).slice().sort(() => Math.random() - .5).slice(0, 6);
+      fly(src, i);
+      setTimeout(() => document.getElementById(b.dataset.target).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }), reduced ? 0 : 650);
+    });
+  });
+
+  // Reading a section fills its bin
+  const sectionObs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (!en.isIntersecting) return;
+      const i = binEls.findIndex(b => b.dataset.target === en.target.id);
+      if (i >= 0) bump(i, 100);
+      sectionObs.unobserve(en.target);
+    });
+  }, { threshold: .3 });
+  binEls.forEach(b => sectionObs.observe(document.getElementById(b.dataset.target)));
+
+  /* ---------- Celebration ---------- */
+  const toast = document.getElementById('toast');
+  function celebrate() {
+    toast.innerHTML = '<b>SZYMALSKI.CV — 100% REFINED</b>Quota met. You have earned a waffle party. The outie can be reached by email.';
+    toast.classList.add('show');
+    grid.classList.add('party');
+    hint.textContent = '[ Music‑dance experience: defiant jazz ]';
+    setTimeout(() => { toast.classList.remove('show'); grid.classList.remove('party'); }, 7000);
+  }
+  toast.addEventListener('click', () => toast.classList.remove('show'));
+
+  /* ---------- Reveal + elevator doors ---------- */
+  const revealObs = new IntersectionObserver(entries => {
+    entries.forEach(en => {
+      if (en.isIntersecting) { en.target.classList.add('in'); revealObs.unobserve(en.target); }
+    });
+  }, { threshold: .15 });
+  document.querySelectorAll('.reveal').forEach((el, i) => {
+    el.style.transitionDelay = (i % 3) * 80 + 'ms';
+    revealObs.observe(el);
+  });
+
+  const elevator = document.getElementById('elevator');
+  new IntersectionObserver((entries, obs) => {
+    if (entries[0].isIntersecting) { elevator.classList.add('open'); obs.disconnect(); }
+  }, { threshold: .35 }).observe(elevator);
+})();
+</script>
+</body>
+</html>
