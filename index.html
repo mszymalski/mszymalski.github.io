@@ -525,7 +525,7 @@
       <div class="section-head">
         <div class="eyebrow">Macrodata Refinement</div>
         <h2>Some numbers feel <b>scary</b>.<br>Sort them into bins.</h2>
-        <p>Hover to inspect. Click a number to refine it. Each bin opens a department of this file — the job is done when all four reach 100%.</p>
+        <p>Hover to inspect. Click the numbers to refine them into bins, or click a bin to open that department of this file. Quota: 100%.</p>
       </div>
 
       <div class="monitor">
@@ -898,41 +898,52 @@
   };
 
   /* ---------- Bin progress ---------- */
-  const progress = [0, 0, 0, 0];
+  const progress = [0, 0, 0, 0];   // what the bars currently show
+  const target = [0, 0, 0, 0];     // refined amount per bin (source of truth)
   const totalEl = document.getElementById('total');
-  let celebrated = false;
+  let celebrated = false, animating = false;
 
   function render() {
     binEls.forEach((b, i) => {
       b.querySelector('.bin-bar').style.setProperty('--p', progress[i]);
       b.querySelector('.bin-bar em').textContent = Math.round(progress[i]) + '%';
     });
-    const total = Math.round(progress.reduce((a, b) => a + b, 0) / 4);
-    totalEl.textContent = total;
-    if (total >= 100 && !celebrated) { celebrated = true; celebrate(); }
+    totalEl.textContent = Math.round(progress.reduce((a, b) => a + b, 0) / 4);
+  }
+  // Ease the bars toward their targets; rapid clicks just move the target further
+  function animate() {
+    if (reduced) { progress.splice(0, 4, ...target); render(); return; }
+    if (animating) return;
+    animating = true;
+    const step = () => {
+      let moving = false;
+      progress.forEach((p, i) => {
+        const d = target[i] - p;
+        if (Math.abs(d) < .5) progress[i] = target[i];
+        else { progress[i] = p + d * .12; moving = true; }
+      });
+      render();
+      if (moving) requestAnimationFrame(step); else animating = false;
+    };
+    requestAnimationFrame(step);
   }
   function bump(i, amount) {
-    const start = progress[i], end = Math.min(100, start + amount);
-    if (end === start) return;
-    if (reduced) { progress[i] = end; render(); return; }
-    const t0 = performance.now(), dur = 900;
-    const tick = t => {
-      const p = Math.min(1, (t - t0) / dur);
-      progress[i] = start + (end - start) * (1 - Math.pow(1 - p, 3));
-      render();
-      if (p < 1) requestAnimationFrame(tick);
-    };
-    requestAnimationFrame(tick);
+    target[i] = Math.min(100, target[i] + amount);
+    setTimeout(animate, 500);
+    if (!celebrated && target.every(t => t >= 100)) {
+      celebrated = true;
+      setTimeout(celebrate, 1400);
+    }
   }
 
   grid.addEventListener('click', e => {
     const el = e.target.closest('.num');
     if (!el) return;
     const group = neighbours(el, 60).slice(0, 7);
-    const open = progress.map((p, i) => p < 100 ? i : -1).filter(i => i >= 0);
+    const open = target.map((t, i) => t < 100 ? i : -1).filter(i => i >= 0);
     const i = open.length ? open[Math.floor(Math.random() * open.length)] : Math.floor(Math.random() * 4);
     fly(group, i);
-    setTimeout(() => bump(i, 12), 500);
+    bump(i, 20);
     hint.textContent = el.classList.contains('scary') ? '[ That one felt scary. Well done. ]' : '[ Refined. Keep going. ]';
   });
 
@@ -944,17 +955,6 @@
       setTimeout(() => document.getElementById(b.dataset.target).scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' }), reduced ? 0 : 650);
     });
   });
-
-  // Reading a section fills its bin
-  const sectionObs = new IntersectionObserver(entries => {
-    entries.forEach(en => {
-      if (!en.isIntersecting) return;
-      const i = binEls.findIndex(b => b.dataset.target === en.target.id);
-      if (i >= 0) bump(i, 100);
-      sectionObs.unobserve(en.target);
-    });
-  }, { threshold: .3 });
-  binEls.forEach(b => sectionObs.observe(document.getElementById(b.dataset.target)));
 
   /* ---------- Celebration ---------- */
   const toast = document.getElementById('toast');
